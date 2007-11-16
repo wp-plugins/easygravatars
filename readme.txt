@@ -5,7 +5,7 @@ Donate link: http://dougal.gunters.org/donate
 Tags: comments, gravatars, gravatar, avatars, avatar, images, personalization
 Requires at least: 2.0.4
 Tested up to: 2.3
-Stable tag: 1.0
+Stable tag: 1.1
 
 Add Gravatars to your comments without modifying any template files. Just
 activate, and you're done!
@@ -89,4 +89,19 @@ Based on a code snippet from Matt Mullenweg:
 Props to David Potter for pointing out that Gravatar normalizes email
 addresses to lowercase before hashing with MD5:
   http://dpotter.net/Technical/index.php/2007/10/22/integrating-gravatar-support/
+
+== Changelog ==
+
+1.1    
+* Gravatar images now link to comment author's URL, if provided.
+* Gravatar code now prepended to text instead of appended.
+* Code reorganized. Functions for filters and hooks are now near the actions
+that actually call them.
+* Added stylesheet for options page and improved layout. Split options into
+'General' and 'Advanced'.
+* New advanced option for selecting either 'Comment Author Link' or 'Comment
+Text' API hook.
+
+1.0
+* Initial release.
 
