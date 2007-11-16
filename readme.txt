@@ -92,7 +92,8 @@ addresses to lowercase before hashing with MD5:
 
 == Changelog ==
 
-1.1    
+= 1.1      2007-11-16 =
+
 * Gravatar images now link to comment author's URL, if provided.
 * Gravatar code now prepended to text instead of appended.
 * Code reorganized. Functions for filters and hooks are now near the actions
@@ -102,6 +103,7 @@ that actually call them.
 * New advanced option for selecting either 'Comment Author Link' or 'Comment
 Text' API hook.
 
-1.0
+= 1.0 =
+
 * Initial release.
 
