@@ -1,12 +1,12 @@
 <?php
 /*
  * Plugin Name: Easy Gravatars
- * Plugin URI: http://dougal.gunters.org/
  * Description: Add Gravatars to your comments, without requiring any modifications to your theme files. Just activate, and you're done!
  * Version: 1.1
- * License: GPL2
+ * Plugin URI: http://dougal.gunters.org/blog/2007/10/24/easy-gravatars
  * Author: Dougal Campbell
  * Author URI: http://dougal.gunters.org/
+ * License: GPL2
  * Min WP Version: 2.0.4
  * Max WP Version: 2.3.1
  */
