@@ -4,8 +4,8 @@ Contributors: dougal
 Donate link: http://dougal.gunters.org/donate
 Tags: comments, gravatars, gravatar, avatars, avatar, images, personalization
 Requires at least: 2.0.4
-Tested up to: 2.3
-Stable tag: 1.1
+Tested up to: 2.5
+Stable tag: 1.2
 
 Add Gravatars to your comments without modifying any template files. Just
 activate, and you're done!
