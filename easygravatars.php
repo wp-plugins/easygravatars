@@ -1,14 +1,14 @@
 <?php
 /*
  * Plugin Name: Easy Gravatars
+ * Plugin URI: http://dougal.gunters.org/
  * Description: Add Gravatars to your comments, without requiring any modifications to your theme files. Just activate, and you're done!
- * Version: 1.1
- * Plugin URI: http://dougal.gunters.org/blog/2007/10/24/easy-gravatars
+ * Version: 1.2
+ * License: GPL2
  * Author: Dougal Campbell
  * Author URI: http://dougal.gunters.org/
- * License: GPL2
  * Min WP Version: 2.0.4
- * Max WP Version: 2.3.1
+ * Max WP Version: 2.5
  */
 
 // Register our activation hook, so we can set our default options:
@@ -106,18 +106,24 @@ function eg_gravatar($text) {
 	if ( !empty( $comment->comment_author_email ) ) {
 		$opts = eg_get_options();
 
-	        // The Gravatar server normalizes email addresses to
-	        // lowercase, so we should, too. Props to David Potter:
-	        //   http://dpotter.net/Technical/index.php/2007/10/22/integrating-gravatar-support/
-
-		$md5 = md5( strtolower( $comment->comment_author_email ) );
-
 		$eg_size = $opts['eg_size'];
 		$eg_rating = $opts['eg_rating'];
-		$default = urlencode( $opts['eg_defaulturl'] );
+		$default = $opts['eg_defaulturl'];
 		$eg_style_span = $opts['eg_style_span'];
 
-		$imgtag = "<img src='http://www.gravatar.com/avatar.php?gravatar_id=$md5&amp;size=$eg_size&amp;rating=$eg_rating&amp;default=$default' width='$eg_size' height='$eg_size' alt='' />";
+		if (function_exists('get_avatar')) {
+			// WP 2.5+
+			$imgtag = get_avatar($comment->comment_author_email, $eg_size, $default);
+		} else {
+			// Roll our own
+			
+		        // The Gravatar server normalizes email addresses to
+		        // lowercase, so we should, too. Props to David Potter:
+		        //   http://dpotter.net/Technical/index.php/2007/10/22/integrating-gravatar-support/
+			$md5 = md5( strtolower( $comment->comment_author_email ) );
+			$default = urlencode( $default );
+			$imgtag = "<img src='http://www.gravatar.com/avatar.php?gravatar_id=$md5&amp;size=$eg_size&amp;rating=$eg_rating&amp;default=$default' width='$eg_size' height='$eg_size' alt='' class='avatar avatar-{$eg_size} easygravatar' />";
+		}
 
 		$cau = $comment->comment_author_url;
 		// Did they leave a link?
